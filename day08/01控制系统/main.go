@@ -74,6 +74,6 @@ func main() {
 }
 
 type User struct {
-	Name  string `json:"Name" form:"Name"`
-	Hobby string `json:"Hobby" form:"Hobby"`
+	Name  string `json:"Name" form:"name"`
+	Hobby string `json:"Hobby" form:"hobby"`
 }
