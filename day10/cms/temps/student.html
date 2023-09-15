@@ -1,0 +1,45 @@
+{{ template "base.html" .}}
+
+
+{{define "content"}}
+<h3>学生管理2</h3>
+
+
+<table class="table table-striped">
+    <tr>
+        <th>姓名</th>
+        <th>学号</th>
+        <th>班级</th>
+        <th>选修课程</th>
+    </tr>
+    {{range $index,$student := .students}}
+    <tr>
+         <td>{{$student.Name}}</td>
+         <td>{{$student.Sno}}</td>
+         <td>{{$student.Class.Name}}</td>
+         <td>
+             <button>添加</button>
+             {{range $index,$course := $student.Courses}}
+             <button onclick="deleteCourse(this)">{{$course.Name}}</button>
+             {{end}}
+         </td>
+    </tr>
+    {{end}}
+</table>
+
+<script type="text/javascript">
+    var deleteCourse=function (event){
+        console.log(event)
+    }
+</script>
+
+
+
+{{end}}
+
+
+{{define "title"}}
+<title>学生管理</title>
+{{end}}
+
+
